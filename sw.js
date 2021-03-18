@@ -1,8 +1,3 @@
----
-layout: compress
-# PWA service worker
----
-
 self.importScripts('{{ "/assets/js/data/cache-list.js" | relative_url }}');
 
 var cacheName = 'chirpy-{{ "now" | date: "%Y%m%d.%H%M" }}';

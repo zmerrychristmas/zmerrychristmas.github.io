@@ -15,7 +15,7 @@ timezone: Asia/Ho_Chi_Minh
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
-title: Blog                        # the main title
+title: Programmer From Zero To Mountaint                       # the main title
 
 tagline: Programmer blog   # it will display as the sub-title
 
@@ -50,7 +50,7 @@ google_site_verification: google_meta_tag_verification # change to your verifica
 # --------------------------
 
 google_analytics:
-  id: ''          # Fill with your Google Analytics ID
+  id: 'G-S57T0PJRJG'          # Fill with your Google Analytics ID
   pv:
     # The Google Analytics pageviews switch.
     # DO NOT enable it unless you know how to deploy the Google Analytics superProxy.

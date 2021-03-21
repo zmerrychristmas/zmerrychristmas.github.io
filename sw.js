@@ -1,4 +1,4 @@
-self.importScripts({{ base.url | prepend: site.url }} + "/assets/js/data/cache-list.js");
+importScripts({{ base.url | prepend: site.url }} + "/assets/js/data/cache-list.js");
 
 var cacheName = 'chirpy-{{ "now" | date: "%Y%m%d.%H%M" }}';
 

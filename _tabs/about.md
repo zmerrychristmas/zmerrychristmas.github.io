@@ -4,5 +4,8 @@ icon: fas fa-info
 order: 4
 ---
 
-
-> **Note**: Add Markdown syntax content to file `_tabs/about.md` and it will show up on this page.
+Hãy cứ gọi tôi là Leo. \\
+Tôi là một lập trình viên, backend developer và fullstack developer. \\
+Tôi tốt nghiệp vào năm 2014 tại VNU University of Engineering and Technology. \\
+Tôi đam mê công nghệ và lập trình.\\
+Nếu bạn cần một lập trình viên hoặc có điều gì muốn chia sẻ hãy liên hệ với tôi thông qua skypeID: zmerrychristmas hoặc email: huybinh.ad@gmail.com

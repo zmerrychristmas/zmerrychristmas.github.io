@@ -58,7 +58,7 @@ Tham khảo [github](https://github.com/jekyll/jekyll-admin) của nhà phát tr
 **Bước 7: Cài đặt theme cho jekyll(tùy bạn nhé!)**  
 các bạn vào [đây](http://jekyllthemes.org/) để tham khảo kho theme của jekyll.
 ## Bước tiếp theo ? Làm sao để viết blog !
-Để viết một blog hay và có nội dung không phải khó nhưng cũng là một chuyện liên quan đến lối văn chương và kiến thức của từng người. Tôi không biết phải viết thế nào :) , những bài viết của tôi vẫn sẽ cung cấp cho các bạn những điều mà tôi muốn ghi lại tại đây và chia sẻ!
+Để viết một blog hay và có nội dung không phải khó nhưng cũng là một chuyện liên quan đến lối văn chương và kiến thức của từng người. Tôi không biết phải viết thế nào :) , những bài viết của tôi vẫn sẽ cung cấp cho các bạn những điều mà tôi muốn ghi lại tại đây và chia sẻ.
 * [Geting started ](/posts/getting-started){:target="_blank"}
 * [Writing a new post](/posts/write-a-new-post/){:target="_blank"}
 * [Text and typography ](/posts/text-and-typography/){:target="_blank"}

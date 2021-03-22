@@ -10,7 +10,7 @@ tags:
 - mysql
 ---
 
-# Cài đặt môi trường code Ruby on Rails trên ubuntu 
+# Cài đặt môi trường Ruby on Rails trên ubuntu 
 ## Cài đặt truyền thống Ruby
 Để cài đặt môi trường code ruby trên ubuntu rất đơn giản vì mặc định ubuntu đã cài đặt sẵn ruby theo từng phiên bản của ubuntu.  
 ```bash

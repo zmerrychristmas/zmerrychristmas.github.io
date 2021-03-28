@@ -158,6 +158,7 @@ exclude:
   - '*.gemspec'
   - tools
   - docs
+  - download
   - README.md
   - LICENSE
   - gulpfile.js

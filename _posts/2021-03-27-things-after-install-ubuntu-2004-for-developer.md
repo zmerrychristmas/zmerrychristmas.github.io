@@ -54,7 +54,7 @@ sudo apt-get install cool-retro-term -y
 sudo apt-get install openshot-qt -y
 sudo apt-get install gnome-tweaks -y
 sudo apt-get install chrome-gnome-shell -y
-sudo apt-get install firefox-gnome-shell -y 
+sudo apt-get install firefox-gnome-shell -y
 sudo apt-get install rar unrar p7zip-full p7zip-rar -y
 sudo apt-get install timeshift -y
 sudo apt-get install ibus-unikey -y
@@ -77,7 +77,7 @@ sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-d
 curl -sS https://getcomposer.org/installer -o composer-setup.php
 php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-sudo apt-get install -y zip unzip software-properties-common 
+sudo apt-get install -y zip unzip software-properties-common
 sudo apt-get install -y php7.4 php7.4-gd php7.4-mbstring php7.4-xml php-zip php7.4-mysql
 ```
 ### Git and Configure
@@ -100,6 +100,8 @@ gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703
 curl -sSL https://get.rvm.io | bash -s stable
 source ~/.rvm/scripts/rvms
 ruby -v
+rvm install 3.0.0
+rvm use 3.0.0
 gem install bundler
 ```
 ## Python
@@ -169,8 +171,8 @@ Add following host
 ```bash
 sudo docker swarm init --advertise-addr 192.168.1.10
 
-Swarm initialized: current node (fsuaqqpihi2eabmmq8gldzhpv) is now a manager. 
-To add a worker to this swarm, run the following command: 
+Swarm initialized: current node (fsuaqqpihi2eabmmq8gldzhpv) is now a manager.
+To add a worker to this swarm, run the following command:
 sudo docker swarm join --token SWMTKN-1-018kvdektwa74z8fajb5c1u6jyz6qfk4ood8u4qotw7go9jj0p-cfpnh7omy86xcgoh45vau2kaj 192.168.1.10:2377
 To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
 ```
@@ -183,7 +185,7 @@ sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_
 sudo apt install pgadmin4 -y
 ```
 ### Configure Postgresql
-By default, Postgres uses a concept called “**roles**” to handle authentication and authorization. These are, in some ways, similar to regular Unix-style users.  
+By default, Postgres uses a concept called “**roles**” to handle authentication and authorization. These are, in some ways, similar to regular Unix-style users.
 The installation procedure created a user account called **postgres**.
 ```bash
 sudo -i -u postgres
@@ -197,14 +199,13 @@ To exit use this command
 ```bash
 createuser --interactive
 ```
-Another way if you like linux command 
+Another way if you like linux command
 ```bash
-sudo -u postgres createuser --interactive
+sudo -u postgres createuser --interactive --pwprompt
 Output
 Enter name of role to add: sammy
 Shall the new role be a superuser? (y/n) y
 
-```
 2. Create DB
 ```bash
     createdb sammy
@@ -227,9 +228,13 @@ Or by that way
 ```
 sudo -u sammy psql
 ```
+full login:
+```bash
+psql -h myhost -d mydb -U myuser
+```
 After tolig you can switch DB by ``` psql -d postgres ```
-To check about connaction: ``` \conninfo ```  
-[How To Install PostgreSQL on Ubuntu 20.04 [Quickstart]](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart) 
+To check about connaction: ``` \conninfo ```
+[How To Install PostgreSQL on Ubuntu 20.04 [Quickstart]](https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart)
 ### Service
 ```bash
 sudo systemctl stop postgresql
@@ -288,7 +293,7 @@ sudo snap install gitkraken --classic
 sudo snap install postman
 sudo snap install phpstorm --classic
 sudo snap install utube
-sudo apt-get install hollywood 
+sudo apt-get install hollywood
 ```
 ### gnome weather
 ```bash

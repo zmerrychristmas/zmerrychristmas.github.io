@@ -12,6 +12,10 @@ tags:
 
 # Bug rack/server.rb:362:in `initialize`: Permission denied @ rb_sysopen  (Errno::EACCES)
 phiên bản sử dụng là rvm 
+## Try first update gem owner
+```sh
+sudo chown -R userowner:yourgroup ~/.rvm
+```
 ## Update permission 
 ```sh 
 rvmsudo rvm get stable --auto-dotfiles

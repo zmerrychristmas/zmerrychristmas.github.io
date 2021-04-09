@@ -239,7 +239,8 @@ To check about connaction: ``` \conninfo ```
 ```bash
 sudo systemctl stop postgresql
 sudo systemctl disable postgresql
-```
+```  
+
 ## MongoDB
 ```bash
 wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -

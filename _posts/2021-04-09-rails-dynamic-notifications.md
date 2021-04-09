@@ -1,5 +1,13 @@
 ---
-title: Rails dynamic notifications
+title: Rails dynamic notifications by ajax
+categories:
+- Fullstack
+- Rails
+tags:
+- rails
+- javascript
+- notification
+- ajax
 ---
 
 ## Controller

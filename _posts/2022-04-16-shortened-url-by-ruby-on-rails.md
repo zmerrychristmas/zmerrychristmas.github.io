@@ -87,7 +87,7 @@ Json Response
     last_id = ShortenUrl.last ? ShortenUrl.last.id : 1
     self.slug = Bijective.bijective_encode(last_id)
   end
-	```
+```
 ### decoded
 ```ruby
 url = ShortenUrl.find_by_slug params[:encoded]

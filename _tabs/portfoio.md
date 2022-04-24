@@ -1,6 +1,6 @@
 ---
 layout: portfolio
 title: Portfolio
-icon: fas fa-stream
+icon: fas fa-paper-plane
 order: 5
 ---

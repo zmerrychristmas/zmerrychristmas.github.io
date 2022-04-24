@@ -1,5 +1,5 @@
 ---
-title: Shortened URL By Ruby ON Rails
+title: Shortened URL By Ruby On Rails
 categories:
 - Framework
 - Rails

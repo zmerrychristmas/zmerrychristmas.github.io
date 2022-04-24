@@ -1,15 +1,20 @@
 # hidden files
 .*
-!.github
+!.git*
+!.editorconfig
+!.nojekyll
+!.travis.yml
+!.husky
+!.commitlintrc.json
+!.versionrc.json
 
-# jekyll cache
+# bundler cache
 _site
 vendor
+Gemfile.lock
 
 # rubygem
 *.gem
-# yard docs
-doc
 
 # npm dependencies
 node_modules

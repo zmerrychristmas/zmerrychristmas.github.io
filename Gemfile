@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-
 source "https://rubygems.org"
-
+ruby "2.5.1"
+gemspec
 group :test do
   gem "html-proofer", "~> 3.18"
 end
@@ -19,4 +19,6 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem 'jekyll-admin'
 end
-gem "jekyll-theme-chirpy"
+
+# Jekyll <= 4.2.0 compatibility with Ruby 3.0
+gem "webrick", "~> 1.7"

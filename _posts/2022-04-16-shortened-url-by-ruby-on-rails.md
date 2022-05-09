@@ -1,5 +1,5 @@
 ---
-title: Shortened URL By Ruby On Rails
+title: How to build a Shortened URL By Ruby On Rails like Bitly or Twitter
 categories:
 - Framework
 - Rails
@@ -10,7 +10,7 @@ tags:
 - shortenURL
 ---
 
-# URL Shorten By Ruby ON Rails
+# How to build a Shortened URL By Ruby On Rails like Bitly or Twitter
 Give a website shortenedUrl to convert longURL to short URL with alpha lexigraphy encoded/decoded response to User.
 - Give two endpoint 
 	 - encoded
@@ -39,17 +39,17 @@ bundle
 ```
 
 ## API in use
-Three enpoint with two default enpoint(`/api/v1/nami/`):
-- index `/api/v1/nami`: Get method\\
+Three enpoint with two default enpoint(`/api/v1/shortner/`):
+- index `/api/v1/shortner`: Get method\\
 json response:
 ```json
 {
-    "message": "Hello Nami Test",
+    "message": "Hello shortner",
     "encoded": "q",
     "url": "http://google.com"
 }
 ```
-- encoded `/api/v1/nami/encoded`: Post method\\
+- encoded `/api/v1/shortner/encoded`: Post method\\
 Json request:
 ```json
 {
@@ -63,7 +63,7 @@ Json Response
     "decoded": "b"
 }
 ```
-- decoded request `/api/v1/nami/decoded`: Post method\\
+- decoded request `/api/v1/shortner/decoded`: Post method\\
 Json Request
 ```json
 {

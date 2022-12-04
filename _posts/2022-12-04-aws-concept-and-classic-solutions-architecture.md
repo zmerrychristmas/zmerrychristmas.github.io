@@ -87,7 +87,7 @@ You can use the **AWS Security Token Service** (AWS STS) to *create* and *provid
 - example: *Revoking Temporary Credentials by curl*
     - permission revoke
 ## Policies and permissions in IAM
-- Most policies are stored in AWS as JSON documents. AWS supports six types of policies:
+- Most **policies** are stored in AWS as JSON documents. AWS supports **six** **types** of policies:
     - identity-based policies,
     - resource-based policies,
     - permissions boundaries,
@@ -104,13 +104,16 @@ You can use the **AWS Security Token Service** (AWS STS) to *create* and *provid
 - example: experience a few ways to access S3 using cross-account access
 - example: access S3 using bucket policy
 ## Resource Access Manager
-Resource Access Manager (RAM) allows AWS resources to be shared between AWS Accounts.It can be used to support certain common architectures such as a Shared Services VPC.
+Resource Access Manager (RAM) *allows* AWS resources to be shared between AWS Accounts.It can be used to support certain common architectures such as a Shared Services VPC.
+
 ## Service endpoints and quotas
+
 - To connect programmatically to an AWS service, you use an endpoint.
 - Service quotas, also referred to as limits, are the maximum number of service resources or operations for your AWS account.
 - Example:
     + Cloudwatch
     + A quota request template
+ 
 ```sh
 aws service-quotas list-service-quotas \
     --service-code cloudformation
@@ -166,6 +169,7 @@ request-service-quota-increase
     [--cli-auto-prompt]
     [--no-cli-auto-prompt]
 ```
+
 ```
 {
     "Quotas": [
@@ -208,15 +212,19 @@ request-service-quota-increase
 ## Amazon Resource Names (ARNs)
 
 ## Questions
-1. What functionality does STS provide?
+**1. What functionality does STS provide?**
 it generates short term credentials which can be used to interact with AWS resources.
-2. Which of the following is NOT an example of a 'real' identity which can be referenced by ARNs in resource policies?
+
+**2. Which of the following is NOT an example of a 'real' identity which can be referenced by ARNs in resource policies?**
 IAM Groups
-3. How are role sessions revoked (Choose one)
+
+**3. How are role sessions revoked (Choose one)**
 A inline policy is added to the role with an explicit deny for role assumptions before .. NOW
-4. If an SCP on the AWS account allows S3, a managed policy attached to your identity allows S3 and an inline policy denys S3.. what is your effective access (Choose one)
+
+**4. If an SCP on the AWS account allows S3, a managed policy attached to your identity allows S3 and an inline policy denys S3.. what is your effective access** (Choose one)
 Denied
-5. An SCP on account B denies S3. A resource policy on the bucket in account B allows account A. An identity policy on Bob in Account A allows access to S3. What is the effective access when Bob accesses the bucket in account B (choose one)
+
+5.**An SCP on account B denies S3. A resource policy on the bucket in account B allows account A. An identity policy on Bob in Account A allows access to S3. What is the effective access when Bob accesses the bucket in account B** (choose one)
 ## Hash
 ## SSL/TLS
 ## Digital Signal
@@ -240,6 +248,7 @@ This lesson details and demos the functionality of a default VPC.
 - **Users** or **Groups** can be assigned JSON documents called policies
 - These **policies** define the permissions of the users
 - In AWS you apply the **least privilege principle** don't give more permission than a user needs
+
 ```json
 {
 "Version": "2012-10-17",
@@ -300,7 +309,7 @@ This lesson details and demos the functionality of a default VPC.
 - MFA virtual app or USB hardware Factor
 - Hardware Key Fob MFA Device, Hardware Key Fob MFA Device
 ### How can users access AWS
-- To access AWS, you have three options
+- To access AWS, you have *three* options
     - AWS Management Console
     - AWS Command line interface
     - AWS software developer kit
@@ -366,7 +375,7 @@ C++)
     - Storing data on virtual drives EBS
     - Distributing load acroos machines ELB
     - Scaling the services using an auto-scaling group ASG
-- Knowing EX2 is fundamental to understand how the Cloud works
+- Knowing EC2 is fundamental to understand how the Cloud works
 ## EC2 sizing & configuration options
 - Operating System (OS): Linux, Windows, MAC OS
 - How much compute power and core: CPU

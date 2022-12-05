@@ -10,7 +10,7 @@ PATH
       jekyll-sitemap (~> 1.4)
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
@@ -130,6 +130,7 @@ GEM
     yell (2.2.2)
 
 PLATFORMS
+  ruby
   x86_64-linux
 
 DEPENDENCIES
@@ -141,9 +142,6 @@ DEPENDENCIES
   tzinfo-data
   wdm (~> 0.1.1)
   webrick (~> 1.7)
-
-RUBY VERSION
-   ruby 2.5.1p57
 
 BUNDLED WITH
    2.2.24

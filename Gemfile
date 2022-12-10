@@ -20,6 +20,6 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem 'jekyll-admin'
 end
-gem "nokogiri", "~> 1.10.10"
+gem "nokogiri", "~> 1.12.5"
 # Jekyll <= 4.2.0 compatibility with Ruby 3.0
 gem "webrick", "~> 1.7"

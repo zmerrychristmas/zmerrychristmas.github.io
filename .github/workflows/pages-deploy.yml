@@ -9,6 +9,15 @@ on:
       - LICENSE
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.7.2' # Not needed with a .ruby-version file
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - run: bundle exec rake
   continuous-delivery:
 
     runs-on: ubuntu-latest
@@ -23,9 +32,10 @@ jobs:
           fetch-depth: 0  # for posts's lastmod
 
       - name: Setup Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: '2.7.2' # Not needed with a .ruby-version file
+          bundler-cache: true # ru
 
       - name: Bundle Caching
         uses: actions/cache@v2

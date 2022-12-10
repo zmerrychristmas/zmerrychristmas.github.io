@@ -24,6 +24,7 @@ tags:
 - Transform and validate requests and responses
 - Generate SDK and API specifications
 - Cache API responses
+
 ## API Gateway – Integrations High Level
 - Lambda Function
     - Invoke Lambda function
@@ -36,6 +37,7 @@ tags:
     - Expose any AWS API through the API Gateway?
     - Example: start an AWS Step Function workflow, post a message to SQS
     - Why? Add authentication, deploy publicly, rate control...
+
 ## API Gateway - Endpoint Types
 - Edge-Optimized (default): For global clients
     - Requests are routed through the CloudFront Edge locations (improves latency)
@@ -46,23 +48,27 @@ tags:
 - Private:
     - Can only be accessed from your VPC using an interface VPC endpint (ENI)
     - Use a resource policy to define access
+
 ## API Gateway – Security: IAM Permissions
 - Create an IAM policy **authorization** and attach to User / Role
 - API Gateway verifies IAM permissions passed by the calling application
 - Good to provide access within your own infrastructure
 - Leverages "Sig v4" capability where IAM credential are in headers
+
 ## API Gateway – Security: Lambda Authorizer (formerly Custom Authorizers)
 - Uses AWS Lambda to **validate** the token in header being passed
 - Option to **cache** result of authentication
 - Help to use Oauth / SAML / 3rd party type of authentication
 - Lambda must return an IAM policy for the user
 ![Sample](https://ibb.co/rsGNsWJ "title")
+
 ## API Gateway – Security: Cognito User Pools
 - Cognito fully manages user **lifecycle**
 - API gateway verifies identity **automatically** from AWS Cognito
 - No custom implementation required
 - Cognito only helps with authentication, not authorization
 ![](https://ibb.co/Y7ZSyRF "cognito user pools")
+
 ## API Gateway – Security – Summary
 1. IAM
     - Greate for users/ roles already within your AWS account
@@ -84,6 +90,7 @@ SQS, SNS & Kinesis
 - There are two patterns of application communication
     - Synchromous communication (app to app)
     - Asynchronous / Evenbased (app to queue to app)
+
 ## Introdution
 - Synchronnous between applications can be problematic if there are sudden spikes of traffic
 - What if you need to suddenly encode 1000 videos but usually it's 10?
@@ -92,8 +99,10 @@ SQS, SNS & Kinesis
     - SNS: pub/sub model
     - Kinesis: real-time streaming model
 - These services can scale independently from our application!
+
 ## Amazon SQS, What's a queue?
 ![](https://data.terabox.com/thumbnail/e19ff69d211fc1e51950db00c82dca33?fid=4401547290288-250528-572541249214972&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-LxKWvtxa2erWuhJObtVehWte5ts%3d&expires=8h&chkbd=0&chkv=0&dp-logid=100591921571805435&dp-callid=0&time=1667109600&size=c1680_u1050&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
+
 ## SQS - Standard queue
 - Oldest offering (over 10 years old)
 - Fully managed service, used to decouple applications
@@ -104,6 +113,7 @@ SQS, SNS & Kinesis
     - Limitation of 256kb per message sent
 - Can have duplicate messages (at least once delivery, occasionally)
 - Can have out of order messages (best effort ordering)
+
 ## SQS - product messages
 - Produced to SQS using the SDK (SendMessage API)
 - The message is persited in SQS until consumer deletes it
@@ -113,21 +123,26 @@ SQS, SNS & Kinesis
     - customer id
     - any attributes you want
 - SQS standard: unlimited throughput
+
 ## SQS - Consuming messages
 - Consumes (running on EC2 instances, Servers, or AWS lambda)...
 - Poll SQS for messages (receive up to 10 messages at a time)
 - Process the messages (example: insert the message inyo an RDS database)
 - Delete the messages using thhe deleteMessage API
+
 ## SQS - Mutiple EC2 Innstances Consumers
 - Consumers receive and process messages in parallel
 - At least once delivery
 - Best effort message ordering
 - Consumers delete messages after processig them
 - We can scale consumers horzontally to improve throughput of processing
+
 ## SQS with auto scaling group (ASG)
 ![](https://data.terabox.com/thumbnail/60fc2bdc059922b8468ef20723f6a421?fid=4401547290288-250528-497477940432260&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-Nog0tlOFfrcPULlinQcUmAysrrs%3d&expires=8h&chkbd=0&chkv=0&dp-logid=102362295374213231&dp-callid=0&time=1667116800&size=c1680_u1050&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
+
 ## SQS to decouple between appliccation tiers
 ![](https://data.terabox.com/thumbnail/f80aa192a0a4dcfaa593961f079adb61?fid=4401547290288-250528-626847050172989&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-qMHNmkaZ9U%2bU7%2f%2bMan0PbbkXzV4%3d&expires=8h&chkbd=0&chkv=0&dp-logid=103471156007648684&dp-callid=0&time=1667120400&size=c1680_u1050&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
+
 ## Amazon SQS - Security
 - Encryption
     - In-flight encryption using HTTPS API
@@ -137,9 +152,11 @@ SQS, SNS & Kinesis
 - SQS Access Policies (similiar to S3 bucket policies)
     - Useful for cross account access to SQS queues
     - Useful for allowinng other services (SNS, S3...) to write to an SQS queue
+
 ## SQS Queue Access Policy
 - Cross Acccount Access
 - Publish S3 Event Notifications to SQS Queue
+
 ## SQS Message Visiblity Timeout
 - After a message is polled by a consumer, it becomes invisible to other consumers
 - By default, the "message visibility timeout" is 30 seconds
@@ -151,6 +168,7 @@ SQS, SNS & Kinesis
 - If visibility timeout is high (hours), and consumer crashes, re-processing will take ttime
 - If visiblity ttimeouut is too low (seconds), we may get duplicates
 ![](https://data.terabox.com/thumbnail/d47c49082dec86f2e22da592a865975e?fid=4401547290288-250528-638498077057569&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-jdlltFCiGrHAJHxoyKhoPQyKWKE%3d&expires=8h&chkbd=0&chkv=0&dp-logid=132070613337514410&dp-callid=0&time=1667224800&size=c1680_u1050&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
+
 ## Amazon SQS - Dead Letter Queue
 - If a consumer fails to process a message within the visibility timeout... the message goes back to the queue!
 - We can set a threshold of how manny times a message can go back to the queue
@@ -159,14 +177,17 @@ SQS, SNS & Kinesis
 - Make sure to process the messages in the DLQ before they expire:
     - Good to sett a rettenttion oof 14days in the DLQ
 ![](https://data.terabox.com/thumbnail/4716a6d1bd945f1672018cecc0dc3c19?fid=4401547290288-250528-253963689416032&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-V4lCvzDh%2byKWkokdmrzD%2fFpcPWE%3d&expires=8h&chkbd=0&chkv=0&dp-logid=132196486098997097&dp-callid=0&time=1667228400&size=c1680_u1050&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
+
 ## SQS DLQ - Redrive to Source
 - Feature to help consume messages in the DLQ to understand what is wrong with them.
 - When our code is fixed, we can redrive the messages from the DLQ backk into the source queue (or any otther queue) inn batches without writing custtom code
+
 ## Amazon SQS - Delay Queue
 - Delay a message (consummers don't see it immediately) up to 15 minuttes
 - Defaultt is 0 secconnds (message is available rightt away)
 - Can set a defaultt at queue level
 - Can override tthe defaultt o sennd using the DelaySecccond parameters
+
 ## Amazon SQS - Long Polling
 - When a consumer requests messages from the queue, it can optioally "wait" for messages to arrive if tthere are nonne in the queue
 - This is called long pollinng
@@ -183,15 +204,18 @@ Visibility Timeout…
 - Useful for debugging!
 - Make sure to process the message in the DLQ before they expire:
     - Good to set a retention of **14days** in the DLQ
+
 ## SQS DLQ – Redrive to Source
 - Redrive to Source
 - **Feature to help consume messages** in the DLQ to understand what is wrong with them
 - When our code is fixed, we can redrive the messages from the DLQ back into the source queue (or any other queue) in batches without writing custom code
+
 ## Amazon SQS – Delay Queue
 - Delay a message up to 15minutes
 - Default is 0 seconds
 - Can set a default at queue level
 - Can override the default on send using the delayseconds parameter
+
 ## Amazon SQS - Long Polling
 - When a consumer requests messages from the queue, it can optionally "wait" for messages to arrive if there are none in the queue
 - This is called long polling
@@ -199,15 +223,18 @@ Visibility Timeout…
 - The wait time can be between 1 sc to 20 sec
 - Long polling is preferable to short polling
 - Long polling can be enabled at the queue level or at the API level using WaitTimeSeconds
+
 ## SQS – Request-Response Systems
 - To implement this pattern: use the SQS Temporary Queue Client
 - It leverages virtual queues instead of creating / deleting SQS queues (cost-effective)
 ![](https://data.terabox.com/thumbnail/dbd7823be2ea09d4c6646487427c332e?fid=4401547290288-250528-836653485996578&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-Tn0aACsr41dXjKCENJmAIots4Dw%3d&expires=8h&chkbd=0&chkv=0&dp-logid=146796765169662898&dp-callid=0&time=1667282400&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
+
 ## Amazon SQS – FIFO Queue
 - FIFO = First In First Out (ordering of messages in the queue)
 - Limited throughput: 300 msg/s without batching, 3000 msg/s with
 - Exactly-once send capability (by removing duplicates)
 - Messages are processed in order by the consumer
+
 ## Kinesis Overview
 - Makes it easy to collect, process, and analyze streaming data in real-time
 - Ingest real-time data such as: Application logs, Metrics, Website clickstreams, IoT telemetry data…
@@ -215,6 +242,7 @@ Visibility Timeout…
 - Kinesis **Data Firehose**: load data streams into AWS data stores
 - Kinesis **Data Analytics**: analyze data streams with SQL or Apache Flink
 - Kinesis **Video Streams**: capture, process, and store video streams
+
 ## Kinesis Data Streams
 ![](https://data.terabox.com/thumbnail/53158a28c623e5784fb1ecc95aa40bae?fid=4401547290288-250528-888144365073549&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-nUHbZG%2bm8Up4v28zawpO92Bhg0A%3d&expires=8h&chkbd=0&chkv=0&dp-logid=148630191436730620&dp-callid=0&time=1667289600&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
 - Retention between 1 day to 365 days
@@ -237,6 +265,7 @@ Visibility Timeout…
     - Default capacity provisioned (4 MB/s in or 4000 records per second)
     - Scales automatically based on observed throughput peak during the last 30days
     - Pay per stream per hour & data in/out per GB
+
 ## Kinesis Data Firehose
 ![](https://data.terabox.com/thumbnail/a87fe08448661bf47728bf5964cdb514?fid=4401547290288-250528-28993844855522&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-BXS0G9aKyYcpu5C%2bxeTeU4644sE%3d&expires=8h&chkbd=0&chkv=0&dp-logid=148365350066619248&dp-callid=0&time=1667286000&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
 - Fully managed service, no administration, automatic scaling, serverless
@@ -250,6 +279,7 @@ Visibility Timeout…
 - Supports many data formats, conversions, transformations, compression
 - Supports custom data transformations using AWS Lambda
 - Can send failed or all data to a backup **S3 bucket**
+
 ## Kinesis Data Streams vs Firehose
 ### Kinesis Data Streams
 - Streaming service for ingest at scale
@@ -258,6 +288,7 @@ Visibility Timeout…
 - Manage scaling (shard splitting / merging)
 - Data storage for 1 to 365 days
 - Suports replay capability
+
 ### Kinesis Data Firehose
 - Load streaming data into S3 / Redshift /
 ES / 3 rd party / custom HTTP
@@ -266,6 +297,7 @@ ES / 3 rd party / custom HTTP
 - Automatic scaling
 - No data storage
 - Doesn’t support replay capability
+
 ## Kinesis Data Analytics (SQL application)
 ![](https://data.terabox.com/thumbnail/60d525fa51afec1e7694a5080ceac9f0?fid=4401547290288-250528-913877153385398&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-Cp1mXiL7X1h5dzf%2fBuj2fjgtGnw%3d&expires=8h&chkbd=0&chkv=0&dp-logid=148621121388058704&dp-callid=0&time=1667289600&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
 - Perform real-time analytics on **Kinesis Streams** using SQL
@@ -278,17 +310,20 @@ ES / 3 rd party / custom HTTP
     - Time-series analytics
     - Real-time dashboards
     - Real-time metrics
+
 ## Ordering data into Kinesis
 - Imagine you have 100 trucks (truck_1, truck_2,.., truck_100) on the road sending their GPS positions regularly into AWS
 - You want to consume the data in order for each truck, so that you can track their movment accurately
 - How should you send that data into Kinesis?
 - Answer: send using a "Partition Key" value of the "truck_id"
 - The same key will always go to the same shard
+
 ## Ordering data into SQS
 - For SQS standard, there is no ordering
 - For SQS FIFO, if you don’t use a Group ID, messages are consumed in the order they are sent, with only one consumer
 - You want to scale the number of consumers, but you want messages to be "grouped" when they are related to each other
 - Then you use a Group ID (similar to Partition Key in Kinesis)
+
 ## Kinesis vs SQS ordering
 - Let’s assume 100 trucks, 5 kinesis shards, 1 SQS FIFO
 - Kinesis Data Streams: (500 consumer)
@@ -303,6 +338,7 @@ ES / 3 rd party / custom HTTP
     - You have up to 300 messages per second (or 3000 if using batching)
 ![](https://data.terabox.com/thumbnail/f346f844d5d9db1b8c51b1ce76f4e060?fid=4401547290288-250528-306468149542926&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-%2bkG8vTfYToNs7SuxQkLzqJTGRUQ%3d&expires=8h&chkbd=0&chkv=0&dp-logid=149575350169314786&dp-callid=0&time=1667293200&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
 ![](https://data.terabox.com/thumbnail/b1fad88a96d1d76899606b95a11ce278?fid=4401547290288-250528-796537850720769&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-m8ZdL15W5%2bcMXJW4bAfPrs5XzYk%3d&expires=8h&chkbd=0&chkv=0&dp-logid=149918803408287026&dp-callid=0&time=1667293200&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
+
 ## Amazon SNS
 - What if you want to send one message to many receivers?
 ![](https://data.terabox.com/thumbnail/61a5422e119285c0aa117312c5d96dc4?fid=4401547290288-250528-226564793143734&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-EZJZQCXmS8eP%2bsl5h0BjkWvme9M%3d&expires=8h&chkbd=0&chkv=0&dp-logid=149426414854930996&dp-callid=0&time=1667289600&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
@@ -311,8 +347,10 @@ ES / 3 rd party / custom HTTP
 - Each subscriber to the topic will get all the messages (note: new feature to filter messages)
 - Up to 12,500,000 subscriptions per topic
 - 100,000 topics limit
+
 ## SNS integrates with a lot of AWS services
 - Many AWS services can send data directly to SNS for notifications
+
 ## Amazon SNS – How to publish
 - Topic Publish (using the SDK)
     - Create a topic
@@ -323,6 +361,7 @@ ES / 3 rd party / custom HTTP
     - Create a platform endpoint
     - Publish to the platform endpoint
     - Works with Google GCM, Apple APNS, Amazon ADM…
+
 ## Amazon SNS – Security
 - Encryption:
     - In-flight encryption using HTTPS API
@@ -332,19 +371,23 @@ ES / 3 rd party / custom HTTP
 - SNS Access Policies (similar to S3 bucket policies)
     - Useful for cross-account access to SNS topics
     - Useful for allowing other services ( S3…) to write to an SNS topic
+
 ## SNS + SQS: Fan Out
 - Push once in SNS, receive in all SQS queues that are subscribers
 - Fully decoupled, no data loss
 - SQS allows for: data persistence, delayed processing and retries of work
 - Ability to add more SQS subscribers over time
 - Make sure your SQS queue accesss policy allows for SNS to write
+
 ## Application: S3 Events to multiple queues
 - For the same combination of: event type (e.g. object create) and prefix (e.g. images/) you can only have one S3 Event rule
 - If you want to send the same S3 event to many SQS queues, use fan-out
 ![](https://data.terabox.com/thumbnail/3418d292f1d06f3ec06d318c2287e826?fid=4401547290288-250528-994038393814877&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-EIAdlE7tgwvm4YaSWOeawoN5lYM%3d&expires=8h&chkbd=0&chkv=0&dp-logid=149836234918496344&dp-callid=0&time=1667293200&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
+
 ## Application: SNS to Amazon S3 through Kinesis Data Firehose
 - SNS can send to Kinesis and therefore we can have the following solutions architecture:
 ![](https://data.terabox.com/thumbnail/07787eb9a8b13863a337796e6739c6c1?fid=4401547290288-250528-698671128515364&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-CJlL04CDEPUSicRlQAlTWx5arOg%3d&expires=8h&chkbd=0&chkv=0&dp-logid=149918803408287026&dp-callid=0&time=1667293200&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
+
 ## Amazon SNS – FIFO Topic
 - FIFO = First In First Out (ordering of messages in the topic)
 - Similar features as SQS FIFO:
@@ -352,13 +395,16 @@ ES / 3 rd party / custom HTTP
     - **Deduplication** using a Deduplication ID or Content Based Deduplication
 - Can only have SQS FIFO queues as subscribers
 - Limited throughput (same throughput as SQS FIFO)
+
 ## SNS FIFO + SQS FIFO: Fan Out
 - In case you need fan out + ordering + deduplication
 ![](https://data.terabox.com/thumbnail/3ea6ea025180be1a376c8c59fdeff11b?fid=4401547290288-250528-41769958245629&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-f%2b2tgUXgOJUBaUNFca8rXHJk53A%3d&expires=8h&chkbd=0&chkv=0&dp-logid=150238647327959985&dp-callid=0&time=1667293200&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
+
 ## SNS – Message Filtering
 - JSON policy used to filter messages sent to SNS topic’s subscriptions
 - If a subscription doesn’t have a filter policy, it receives every message
 ![](https://data.terabox.com/thumbnail/22f88eebfb31c930c37934b8fdab6166?fid=4401547290288-250528-336701414978434&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-Q%2bh2vb3%2fyR305uc1cXway1zfF28%3d&expires=8h&chkbd=0&chkv=0&dp-logid=150295095105082411&dp-callid=0&time=1667293200&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
+
 ## SQS vs SNS vs Kinesis
 ### SQS
 - Consumer "pull data"
@@ -367,6 +413,7 @@ ES / 3 rd party / custom HTTP
 - No need to provision throughput
 - Ordering guarantes only on FIFO queues
 - Individual message delay capability
+
 ### SNS
 - Push data to many subscribers
 - Up to 12500000 subcribers
@@ -386,6 +433,7 @@ ES / 3 rd party / custom HTTP
 - Ordering at the shard level
 - Data expires aftr X days
 - Provisioned mode or on-demand capacity mode
+
 ## Amazon MQ
 - SQS, SNS are "cloud-native" service, and they're using proprietary protocols from AWS
 - Traditional applications running from on-premises may use open protocols such as: MQTT, AMQP, STOMP, Openwire, WSS
@@ -394,6 +442,7 @@ ES / 3 rd party / custom HTTP
 - Amazon MQ doesn’t “scale” as much as SQS / SNS
 - Amazon MQ runs on a dedicated machine, can run in HA with failover
 - Amazon MQ has both queue feature (~SQS) and topic features (~SNS)
+
 ## Amazon MQ – High Availability
 ![](https://data.terabox.com/thumbnail/e405f51c992247649bff966cc1e5e2ee?fid=4401547290288-250528-131705074839729&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-eqMIRYs%2fxykOOR7iRUOoprbAVzw%3d&expires=8h&chkbd=0&chkv=0&dp-logid=151478974774550761&dp-callid=0&time=1667300400&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
 
@@ -403,6 +452,7 @@ ES / 3 rd party / custom HTTP
 - There are two patterns of application communication.
     - Evolving with queues
     - Event-driven architecture
+
 ## Amazon SQS – Standard Queue
 - Oldest offering (over 10 years old)
 - Fully managed service, used to decouple applications
@@ -413,6 +463,7 @@ ES / 3 rd party / custom HTTP
     - Limitation of 256KB per message sent
 - Can have duplicate messages (at least once delivery, occasionally)
 - Can have out of order messages (best effort ordering)
+
 ## SQS – Producing Messages
 - Produced to SQS using the SDK (SendMessage API)
 - The message is persisted in SQS until a consumer deletes it
@@ -422,11 +473,13 @@ ES / 3 rd party / custom HTTP
     - Customer id
     - Any attributes you want
 - SQS standard: unlimited throughput
+
 ## SQS – Consuming Messages
 - Consumers (running on EC2 instances, servers, or AWS Lambda)…
 - Poll SQS for messages (receive up to 10 messages at a time)
 - Process the messages (example: insert the message into an RDS database)
 - Delete the messages using the DeleteMessage API
+
 ## Lambda: function as a service
     - You are billed for the duration that a function runs
     - The environment has a direct memory (indirect CPU) allocation
@@ -437,6 +490,7 @@ ES / 3 rd party / custom HTTP
     - Database Triggers (DynamoDB, Streams, Lambda)
     - Serverless CROn (EventBrige/CWEvents + Lambda)
     - Realtime Stream Data Processing (kinesis + Lambda)
+
 ## Lambda in depth:
     - Public Lambda:
     ![](https://data.terabox.com/thumbnail/9fb8e7f5d4deb514c210c436daa33b68?fid=4401547290288-250528-754626766169061&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-AyXAee6ddgI%2bVvNASA%2fyuIDC100%3d&expires=8h&chkbd=0&chkv=0&dp-logid=125173180413113238&dp-callid=0&time=1667199600&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
@@ -452,6 +506,7 @@ ES / 3 rd party / custom HTTP
         - Metrics - invocation success/failure, retries, latency ... stored in cloudwatch
         - lambda can be integrated with x-ray for distributed tracing
         - Cloudwatch logs requires permissions via execution role
+
 ## Lambda in depth: Invocation
 - Invocation:
 - Synchronous
@@ -465,6 +520,7 @@ ES / 3 rd party / custom HTTP
 ![](https://data.terabox.com/thumbnail/28aa6998b0ebdef94b4e16f253471770?fid=4401547290288-250528-702564787382654&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-kQOc6hfw13wsrP9Vk8%2br4zTlQeA%3d&expires=8h&chkbd=0&chkv=0&dp-logid=125670327781297890&dp-callid=0&time=1667203200&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
 - An execution context is the environment a lambda function run in. A cold start is a full creation and configuration including function code dowload.
 ![](https://data.terabox.com/thumbnail/a01705e28f64e433d11b34650c680af9?fid=4401547290288-250528-926045713650794&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-LpiObhVLwT29GOMoxt1fK19ih4M%3d&expires=8h&chkbd=0&chkv=0&dp-logid=126228460675791421&dp-callid=0&time=1667203200&size=c1920_u1080&quality=90&vuk=4401547290288&ft=image&autopolicy=1)
+
 ## Cloudwatch events and eventbridge
 - If X happen, or at Y times .. do Z
 - Eventbrigde is cloudwatch api v2
@@ -477,6 +533,7 @@ CloudWatch Events and EventBridge have visibility over events generated by suppo
 They can monitor the default account event bus - and pattern match events flowing through and deliver these events to multiple targets.
 They are also the source of scheduled events which can perform certain actions at certain times of day, days of the week, or multiple combinations of both - using the Unix CRON time expression format.
 Both services are one way how **event driven architectures** can be implemented within AWS.
+
 ## SQS – Multiple EC2 Instances Consumers
 - Consumers receive and process messages in parallel
 - At least once delivery

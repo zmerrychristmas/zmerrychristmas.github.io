@@ -1,6 +1,4 @@
 # hidden files
-.*
-!.git*
 !.editorconfig
 !.nojekyll
 !.travis.yml

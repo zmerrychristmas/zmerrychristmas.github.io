@@ -25,7 +25,6 @@ includes the additional context. The percentage in each domain represents only s
 | Total                                                                                                       |  100%    |
 
 ## Domain 1: Design Secure Architectures
-
 ### Task Statement 1: Design **secure access** to AWS resources.
 knowledge of:
 * **Access controls and management across** multiple accounts
@@ -138,6 +137,7 @@ Knowledge of:
 Skills in:
 * *Determining* storage services and *configurations* that meet performance demands
 * *Determining* storage services that can scale to accommodate future needs
+
 ### Task Statement 2: Design high-performing and elastc compute solutions.
 Knowledge of:
 * AWS compute services with appropriate use cases (for example, **AWS Batch, Amazon EMR, AWS Fargate**)
@@ -150,6 +150,7 @@ Skill in:
 * *Decoupling* **workloads** so that **components** can **scale** independently
 * *Identifing* **metrics** and conditions to perform **scaling** actions
 * *Selecting* the appropriare resource type and size (the amount of **Lambda** memory) to meet business requirements
+
 ### Task Statement 3: Determine high-performing database solutions.
 Knowledge of:
 *  AWS global infrastructure (for example, **Availability Zones, AWS Regions**)
@@ -166,6 +167,7 @@ Skills in:
 * *Determining* an appropriate database **engine** (for example, **MySQL compared with PostgreSQL**)
 * *Determining* an appropriate database **type** (for example,**Amazon Aurora, Amazon DynamoDB**)
 * *Integrating* caching to meet business requirements
+
 ### Task Statement 4: Determine high-performing and/or scalable network architectures.
 
 Knowledge of:

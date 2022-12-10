@@ -1,5 +1,5 @@
 ---
-title: 'AWS Advance: ElastiCache, RDS and Aurora part 3'
+title: 'AWS Advance: Aurora'
 categories:
 - Fullstack
 - Architect
@@ -17,6 +17,7 @@ tags:
 - Aurora have *15 replicas while MYSQL has 5*, and the replication process is faster (sub 10ms replica lag)
 - Failover in Aurora is **instantaneous**. It's HA (**high Avaiability**) native.
 - Aurora costs more than RDS** (20% more)** - but is **more efficient**
+
 ## Aurora High Availability and read scaling
 - **6 copies of your data across 3 AZ**:
     - 4 copies out of 6 needed for writes
@@ -28,11 +29,13 @@ tags:
 - **Master + up to 15 Aurora** read replicas serve reads
 - Support for Cross Region Replication
 - Shared storage Volume Replication + self healing + auto expanding
+
 ## Aurora DB Cluster
 - **Write** endpoint
     - Pointing to the master
 - **Reader** Endpoint
     - Connection Load Balancing
+
 ## Features of Aurora
 - Automatic Failover
 - Backup annd Recovery
@@ -43,6 +46,7 @@ tags:
 - Advanced Monitoring
 - Routine Maintenance
 - Backtrack: restore data at anypoint of time without using backups
+
 ## Aurora Security
 - Similar to RDS because uses **the same engies**
 - Encryption at rest using **KMS**
@@ -51,22 +55,27 @@ tags:
 - **Possibility to autheticate usig IAM token** (same method as RDS)
 - You are responsible for protecting the instance with security groups
 - **You can't SSH**
+
 ## Aurora Repliccas - Auto Scaling
 - Write endpoint
 - Many request to Reader endpoint and edpoint extended above replicas auto sccaling policies and shared storage volume
+
 ## Aurora - Custom Endpoints
 - Define a subset of Aurora **Instannces** as a Custom endpoint
 - Example: Run analytical queries on specific **replicas**
 - The reader Endpoint is generally not used after defining custom endpoints
+
 ## Aurora Serverless
 - *Automated database instantiation and auto scaling based on actual usage*
 - Good for *infrequent*, *intermittent* or *unpredictable* workloads
 - No capacity plannig needed
 - Pay per second, can be **most cost-effective**
 - **Proxy** fleet is managed by Aurora
+
 ## Aurora Multi-Master
 - In case you want immediate failover for write node (HA)
 - Every node does R/W - vs promoting a RR as the new master
+
 ## Global Aurora
 - Aurora cross region read replicas
     - Usefule for *disaster recovery*
@@ -77,6 +86,7 @@ tags:
     - Up to **16 read repliccas** per secondary region
     - Helps for decreasing latency
     - Promotig another region (for disater recovery) has an RTO of < 1 minute
+
 ## Aurora Machine Learning
 - Enables you to add **ML-based predictions** to your applications via SQL
 - Simple, optimized and secure integration between Aurora and AWS ML services
@@ -85,6 +95,7 @@ tags:
     - **Amazon Comprehend** (for sentiment analysis)
 - You don't need to have ML experience
 - Use cases: *fraud detection, ads targeting, sentiment analysis, product recommendations*
+
 ## Amazon ElastiCache Overview
 - The same way RDS is to get managed Relational Databases...
 - **ElastiCache** is to get managed Redis or Memcached
@@ -93,16 +104,19 @@ tags:
 - Helps make your application stateless
 - AWS takes care of OS maintanance / patching, optimizations, setup, configuration, monitoring, failure recovery and backups
 - Using ElastiCache involves **heavy application code changes**
+
 ## ElastiCache Solution Architecture - DB Cache
 - Applications queries Elasticacche, if not available, get from RDS and store in ElastiCache
 - Helps relieve load in RDS
 - Cache must have an invalidation strategy to make sure only the most current data is used in there.
+
 ## ElastiCache Solution Architecture - User Session Store
 - User logs into any of the application
 - The application *writes the session data into ElastiCache*
 - The user hits another instance of our application
 - The instance retrieves the data ans the user is already logged in
 - The user retrieve session from ElastiCache
+
 ## Elasticache: Redis vs Memcached
 - Redis:
     - Multi AZ with Auto Failover
@@ -115,6 +129,7 @@ tags:
     - Non persistent
     - No Backup and restore
     - Multi threaded architedture
+
 ## ElastiCache - Cache Security
 - All caches in ElastiCache
     - **Do not support IAM authentication**
@@ -125,11 +140,13 @@ tags:
     - Support SSL in flight encryptionn
 - Memcached
     - Supports **SASL-based authentication** (advanced)
+
 ## Patterns for ElastiCache
 - Lazy Loading: all the read data is cached, data can become state in cache
 - Write Through: Adds or update data in the cache when written to a DB (no scale data)
 - Session Store: store temporary session data in a cache (using TTL features)
 - Qoute: There are only two hard things in Computer Science: cache invalidation and naming things
+
 ## ElastiCache - Redis Use Case
 - Gaming leadeerboards are coomputationally complex
 - Redis Sorted sets guarantee both uniqueness and element ordering

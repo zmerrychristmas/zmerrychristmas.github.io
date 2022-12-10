@@ -138,6 +138,7 @@ DEPENDENCIES
   jekyll-admin
   jekyll-feed (~> 0.12)
   jekyll-theme-chirpy!
+  nokogiri (~> 1.10.10)
   tzinfo (~> 1.2)
   tzinfo-data
   wdm (~> 0.1.1)

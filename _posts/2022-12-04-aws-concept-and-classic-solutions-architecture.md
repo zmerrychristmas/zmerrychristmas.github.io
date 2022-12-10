@@ -103,6 +103,9 @@ You can use the **AWS Security Token Service** (AWS STS) to *create* and *provid
 - Condition (Optional) – Specify the circumstances under which the policy grants permission.
 - example: experience a few ways to access S3 using cross-account access
 - example: access S3 using bucket policy
+
+## Service linked role
+A service-linked role is a unique type of IAM role that is linked directly to an AWS service. Service-linked roles are predefined by the service and include all the permissions that the service requires to call other AWS services on your behalf. The linked service also defines how you create, modify, and delete a service-linked role. A service might automatically create or delete the role. It might allow you to create, modify, or delete the role as part of a wizard or process in the service. Or it might require that you use IAM to create or delete the role. ![https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html)
 ## Resource Access Manager
 Resource Access Manager (RAM) *allows* AWS resources to be shared between AWS Accounts.It can be used to support certain common architectures such as a Shared Services VPC.
 

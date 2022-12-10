@@ -139,8 +139,7 @@ collections:
     output: true
     sort_by: order
 
-plugins:
-  - jekyll-multiple-languages-plugin
+languages: ["vi", "en"]
 
 defaults:
   - scope:

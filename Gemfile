@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 source "http://rubygems.org"
-ruby "2.7.2"
+# ruby "2.7.2"
 gemspec
 group :test do
   gem "html-proofer", "~> 4.4"
@@ -20,6 +20,7 @@ group :jekyll_plugins do
   gem 'jekyll-admin'
 end
 gem "nokogiri", "~> 1.13"
+gem "addressable", "2.4.0"
 # Jekyll <= 4.2.0 compatibility with Ruby 3.0
 gem "webrick", "~> 1.7"
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]

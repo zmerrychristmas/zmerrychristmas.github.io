@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0  # for posts's lastmod
 
@@ -29,7 +29,7 @@ jobs:
           bundler-cache: true # ru
 
       - name: Bundle Caching
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ${{ env.GEMS_PATH }}
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}

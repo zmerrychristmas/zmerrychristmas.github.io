@@ -16,10 +16,10 @@ platforms:
     link: "https://telegram.me/share?text=TITLE&url=URL"
 
   # Uncomment below if you need to.
-  # -
-  #   type: Linkedin
-  #   icon: "fab fa-linkedin"
-  #   link: "https://www.linkedin.com/sharing/share-offsite/?url=URL"
+  -
+    type: Linkedin
+    icon: "fab fa-linkedin"
+    link: "https://www.linkedin.com/in/b%C3%ACnh-nguy%E1%BB%85n-75312a7b/"
   #
   # -
   #   type: Weibo

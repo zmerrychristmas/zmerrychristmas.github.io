@@ -4,7 +4,7 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-Hãy cứ gọi tôi là Leo. \\
+Hãy gọi tôi là Leo. \\
 Tôi là một lập trình viên, backend developer và fullstack developer. \\
 Tôi tốt nghiệp vào năm 2014 tại VNU University of Engineering and Technology. \\
 Tôi đam mê công nghệ và lập trình.\\

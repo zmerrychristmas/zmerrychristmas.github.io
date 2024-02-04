@@ -44,7 +44,7 @@ social:
     - https://github.com/zmerrychristmas       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/b%C3%ACnh-nguy%E1%BB%85n-75312a7b/
 
 google_site_verification: google_meta_tag_verification # change to your verification string
 # --------------------------
@@ -81,7 +81,7 @@ theme_mode:   # [light|dark]
 img_cdn: ''
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images/commons/avatar.jpg
+avatar: assets/portfolio/assets/img/portfolio/leo/horse-racing.webp
 # img_cdn: 'https://raw.githubusercontent.com/cotes2020/chirpy-images/main'
 
 # boolean type, the global switch for ToC in posts.

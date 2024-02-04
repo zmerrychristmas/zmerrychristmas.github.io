@@ -11,7 +11,7 @@ tags:
 - grape
 ---
 
-Trong việc module hóa cũng như tạo cấu trúc REST API bạn có thể tự tạo cho mình một framework riêng hoặc sử dụng một framework đã có và đang được phát triển và ưa dùng là [grape](http://www.ruby-grape.org/). tham khảo tại [đây](https://github.com/ruby-grape/grape) 
+Trong việc module hóa cũng như tạo cấu trúc REST API bạn có thể tự tạo cho mình một framework riêng hoặc sử dụng một framework đã có và đang được phát triển và ưa dùng là [grape](https://www.ruby-grape.org/). tham khảo tại [đây](https://github.com/ruby-grape/grape) 
 # Grape api là gì ?
 ``Grape is a REST-like API framework for Ruby. It's designed to run on Rack or complement existing web application frameworks such as Rails and Sinatra by providing a simple DSL to easily develop RESTful APIs. It has built-in support for common conventions, including multiple formats, subdomain/prefix restriction, content negotiation, versioning and much more.``
 * api frame work
@@ -29,7 +29,7 @@ gem 'grape'
 ```
 Run bundle : ``` bundle update ```
 
-## Controller example 
+## Controller example
 ```ruby
 module Twitter
   class API < Grape::API
@@ -106,7 +106,7 @@ module Twitter
   end
 end
 ```
-## Cấu trúc thư mục 
+## Cấu trúc thư mục
 1. sơ cấp
 ```
 app
@@ -336,7 +336,7 @@ module API
 end
 ```
 
-## Action callback 
+## Action callback
 Grape vấn support đầy đủ các hàm call back như:  
 	1. before  
 	2. before_validation  
@@ -405,7 +405,7 @@ kết quả
 GET /foo/v1       # 'v1-hello'
 GET /foo/v2       # 'v2-hello'
 ```
-## Rspec 
+## Rspec
 Viết rồi kiểm thử làm sao ?
 -> viết rspec cho api ta có thể dùng gem [airborne](https://github.com/brooklynDev/airborne).
 install: 
@@ -478,7 +478,7 @@ module API
              Grape::Formatter::ActiveModelSerializers
          ...
 ```
-### Viết file serializers 
+### Viết file serializers
 Create a directory, `serializers`, in the top level of your app. Create a `graduate_serializer.rb` file in that directory. Here is where our serializer will live.
 ``app/serializers/graduate_serializer.rb``
 ```ruby
@@ -514,7 +514,7 @@ vào url: `http://localhost/documentation` bạn sẽ redirect tới: `http://lo
 
 ## Grape Entity
 Có thể tham khảo thêm tại đây 
-## Grape Logger 
+## Grape Logger
 Có thể tham khảo tại đây 
 ## Grape Swagger representable
 Có thể tham khảo thêm tại đây 

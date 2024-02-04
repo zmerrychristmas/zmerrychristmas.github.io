@@ -72,7 +72,7 @@ This project is published under [MIT License][license].
 [license]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
 [jekyllrb]: https://jekyllrb.com/
 [clipartmax]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
-[demo]: https://cotes2020.github.io/chirpy-demo/
+[demo]: https://zmerrychristmas.github.io
 [wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
 [contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/CONTRIBUTING.md
 [contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors

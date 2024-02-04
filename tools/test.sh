@@ -59,9 +59,9 @@ if $_build; then
   JEKYLL_ENV=production bundle exec jekyll b
 fi
 
+# --empty_alt_ignore \
 bundle exec htmlproofer "$DEST" \
   --disable-external \
   --check-html \
-  --empty_alt_ignore \
   --allow_hash_href \
   --url_ignore $URL_IGNORE

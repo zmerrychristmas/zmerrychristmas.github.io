@@ -8,7 +8,7 @@ categories:
 tags:
 - getting started
 pin: false
-img_path: "/posts/20180809"
+img_path: "assets/img/posts/20190809"
 ---
 
 ## Prerequisites
@@ -91,7 +91,7 @@ You may want to preview the site contents before publishing, so just run it by:
 $ bundle exec jekyll s
 ```
 
-After a few seconds, the local service will be published at _<http://127.0.0.1:4000>_.
+After a few seconds, the local service will be published at _<a href="http://127.0.0.1:4000" data-proofer-ignore>127.0.0.1:4000</a>_.
 
 ## Deployment
 
@@ -134,13 +134,6 @@ Unless you specified the output path, the generated site files will be placed in
 
 [nodejs]: https://nodejs.org/
 [starter]: https://github.com/cotes2020/chirpy-starter
-<<<<<<< HEAD
-[use-starter]: https://github.com/cotes2020/chirpy-starter/generate
-[workflow]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/.github/workflows/pages-deploy.yml.hook
-[chirpy-4.1.0]: https://github.com/cotes2020/jekyll-theme-chirpy/releases/tag/v4.1.0
-[pages-src]: https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-[latest-tag]: https://github.com/cotes2020/jekyll-theme-chirpy/tags
-=======
 [pages-workflow-src]: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow
 [latest-tag]: https://github.com/cotes2020/jekyll-theme-chirpy/tags
 >>>>>>> jekyll-theme-chirpy/master

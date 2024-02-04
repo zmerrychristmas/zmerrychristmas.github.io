@@ -725,7 +725,6 @@ foo()
 ```
 That's a big difference between Promises (and Async/await, which is built on promises) and plain old asynchronous functions through setTimeout() or other platform APIs.
 Finally, here's what the call stack looks like for the example above:
-![]("")
 ## Differences between Node.js and the Browser
 - NodeJs give Huge advance, you can perform all your work on the web, both client and server. The confor of programming everything - the frontend and the backend in a single languages.
 - Another big difference is that in Node.js you control the environment. Unless you are building an open source application that anyone can deploy anywhere, you know which version of Node.js you will run the application on. This means that you can write all the modern ES6-7-8-9 JavaScript that your Node.js version supports.

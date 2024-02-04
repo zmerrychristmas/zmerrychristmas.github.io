@@ -84,7 +84,7 @@ class AreaCalculator {
 }
 
 ```
-##  Open closed princliple 
+## Open closed princliple
 > Software components should be closed for modification, but open for extension 
 ![Open closed principle](/assets/img/solid-priciples/open-closed-principle.png){:.shadow }
 
@@ -153,7 +153,7 @@ Caution:
 ## Liskov subtitution priciple
 > Obejct should be replaceable with their subtypes without affecting the correctness of the program
 
-![Liskov subtitution principle](/assets/img/solid-priciples/liskov subtitution principle.png){: .shadow }
+![Liskov subtitution principle]({{ '/assets/img/solid-priciples/liskov subtitution principle.png' | relative_url }}){: .shadow }
 
 ![]({{ 'assets/img/solid-priciples/liskov subtitution principle sample.png' | relative_url }})
 ```php
@@ -180,7 +180,7 @@ class Eagle extends Bird {
 - break the hierachy
 - Tell, don't ask
 
-## Interface Segregation principle 
+## Interface Segregation principle
 > No client should be forced to depend on methods it does not use
 
 ![]({{ 'assets/img/solid-priciples/interface segregation principle.png' | relative_url }})
@@ -344,7 +344,7 @@ class GoogleMaps implements GeolocationService { ...
 
 class OpenStreetMap implements GeolocationService { ...
 ```
-### Inversion of control 
+### Inversion of control
 > Inversion of control (IOC) defines the way objects are used, but it does not specify how to create them. IOC defines the relationship between the high-level class and detail class, where the high-level class depends on detail class. High- and low-level classes are related by abstracting a detail class in IOC.
 
 ```php

@@ -28,9 +28,19 @@ jobs:
 
     env:
       GEMS_PATH: vendor/bundle
+      GH_TOKEN: ${{ steps.generate_token.outputs.token }}
 
     steps:
+      - name: Generate a token
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: 821610
+          private-key: cbddebb588624d5482286dc3f4635ee43ff2c4e5
+
       - name: Checkout
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -41,6 +51,8 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
 
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
@@ -48,22 +60,29 @@ jobs:
           # ruby-version: 2.7.2
           ruby-version: 3.2
           bundler-cache: true
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
 
       - name: Test site
         run: |
           bundle exec htmlproofer _site \
             \-\-disable-external=true \
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: "_site${{ steps.pages.outputs.base_path }}"
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
 
   deploy:
     environment:

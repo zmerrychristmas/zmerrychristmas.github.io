@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+  - 2.7.2
+  - jruby
+notifications:
+  email:
+    - huybinh.ad@gmail.com

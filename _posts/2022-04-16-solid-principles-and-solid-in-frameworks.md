@@ -155,7 +155,6 @@ Caution:
 
 ![Liskov subtitution principle]({{ '/assets/img/solid-priciples/liskov subtitution principle.png' | relative_url }}){: .shadow }
 
-![]({{ 'assets/img/solid-priciples/liskov subtitution principle sample.png' | relative_url }})
 ```php
 abstract class Bird 
 {

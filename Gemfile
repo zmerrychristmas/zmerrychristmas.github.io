@@ -19,9 +19,9 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem 'jekyll-admin'
 end
-gem "nokogiri", "~> 1.13"
+gem "nokogiri", "~> 1.15"
 # Jekyll <= 4.2.0 compatibility with Ruby 3.0
-gem "webrick", "~> 1.7"
+gem "webrick", "~> 1.8"
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
 # Lock `http_parser.rb` gem to `v0.6.x` on JRuby builds since newer versions of the gem

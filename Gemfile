@@ -16,7 +16,7 @@ end
 
 # Performance-booster for watching directories on Windows
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-feed", "~> 0.17"
   gem 'jekyll-admin'
 end
 gem "nokogiri", "~> 1.13"
